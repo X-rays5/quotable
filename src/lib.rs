@@ -1,6 +1,8 @@
 use worker::*;
 
 mod utils;
+mod data;
+
 fn log_request(req: &Request) {
     console_log!(
         "{} - [{}], located at: {:?}, within: {}",
@@ -21,6 +23,7 @@ pub async fn main(req: Request, env: Env) -> Result<Response> {
     let router = Router::new();
 
     router
+        .get_async("/random", routes::random::handle_request)
         .run(req, env)
         .await
 }
