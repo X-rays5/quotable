@@ -2,6 +2,7 @@ use worker::*;
 
 mod utils;
 mod data;
+mod routes;
 
 fn log_request(req: &Request) {
     console_log!(
@@ -24,6 +25,8 @@ pub async fn main(req: Request, env: Env) -> Result<Response> {
 
     router
         .get_async("/random", routes::random::handle_request)
+        .get_async("/quotes/:id", routes::quotes::handle_request_specific)
+        .get_async("/quotes", routes::quotes::handle_request)
         .run(req, env)
         .await
 }
