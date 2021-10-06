@@ -27,6 +27,8 @@ pub async fn main(req: Request, env: Env) -> Result<Response> {
         .get_async("/random", routes::random::handle_request)
         .get_async("/quotes/:id", routes::quotes::handle_request_specific)
         .get_async("/quotes", routes::quotes::handle_request)
+        .get_async("/authors/:id", routes::authors::handle_request_specific)
+        .get_async("/authors", routes::authors::handle_request)
         .run(req, env)
         .await
 }
