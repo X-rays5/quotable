@@ -24,6 +24,7 @@ pub async fn main(req: Request, env: Env) -> Result<Response> {
     let router = Router::new();
 
     router
+        .get_async("/", routes::index::handle_request)
         .get_async("/random", routes::random::handle_request)
         .get_async("/quotes", routes::quotes::handle_request)
         .get_async("/quotes/:id", routes::quotes::handle_request_specific)
