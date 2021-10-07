@@ -1,7 +1,6 @@
 # Quotable
 this is a reimplementation of [quotable](https://github.com/lukePeavey/quotable) as a cloudflare worker using rust wasm
 
-some features that are in the api reference below may be missing
 ## API Reference
 
 ### Error handling
